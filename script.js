@@ -3,79 +3,97 @@
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+if (menuToggle && navLinks) {
 
-    menuToggle.textContent = navLinks.classList.contains("open")
-        ? "✕"
-        : "☰";
-});
+    menuToggle.addEventListener("click", () => {
 
-// Close menu after clicking a link
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.textContent = "☰";
+        const isOpen = !navLinks.classList.contains("hidden");
+
+        navLinks.classList.toggle("hidden");
+        navLinks.classList.toggle("flex");
+
+        menuToggle.textContent = isOpen ? "☰" : "✕";
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
     });
-});
 
-// Typing Animation
-const words = [
-    "Full Stack Developer",
-    "MERN Stack Developer",
-    "Web Developer"
-];
+    // Close menu after clicking
+    navLinks.querySelectorAll("a").forEach(link => {
 
-const typedText = document.getElementById("typedText");
+        link.addEventListener("click", () => {
 
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
+            if (window.innerWidth < 768) {
 
-function typeEffect() {
-    const currentWord = words[wordIndex];
+                navLinks.classList.add("hidden");
+                navLinks.classList.remove("flex");
 
-    if (deleting) {
-        charIndex--;
-    } else {
-        charIndex++;
-    }
+                menuToggle.textContent = "☰";
+                menuToggle.setAttribute("aria-expanded", "false");
 
-    typedText.textContent = currentWord.substring(0, charIndex);
+            }
 
-    let speed = deleting ? 50 : 100;
+        });
 
-    if (!deleting && charIndex === currentWord.length) {
-        speed = 1500;
-        deleting = true;
-    } else if (deleting && charIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        speed = 500;
-    }
+    });
 
-    setTimeout(typeEffect, speed);
 }
 
-typeEffect();
-
 // Current Year
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+const year = document.getElementById("year");
 
-// Scroll Animation
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+if (year) {
+    year.textContent = new Date().getFullYear();
+}
+
+// Typing Animation
+const typedText = document.getElementById("typedText");
+
+if (typedText) {
+
+    const words = [
+        "Full Stack Developer",
+        "MERN Stack Developer",
+        "Web Developer"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+
+        const currentWord = words[wordIndex];
+
+        charIndex += deleting ? -1 : 1;
+
+        typedText.textContent =
+            currentWord.substring(0, charIndex);
+
+        let speed = deleting ? 50 : 100;
+
+        if (!deleting && charIndex === currentWord.length) {
+
+            deleting = true;
+            speed = 1500;
+
+        } else if (deleting && charIndex === 0) {
+
+            deleting = false;
+
+            wordIndex = (wordIndex + 1) % words.length;
+
+            speed = 500;
+
         }
-    });
-}, {
-    threshold: 0.15
-});
 
-document.querySelectorAll(
-    ".section, .project-card, .skill-card, .education-card"
-).forEach(element => {
-    observer.observe(element);
-});
+        setTimeout(typeEffect, speed);
+
+    }
+
+    typeEffect();
+
+}

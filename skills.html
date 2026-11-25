@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Kopil Uddin</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif
+        }
+    </style>
+</head>
+
+<body class="bg-[#080d18] text-white">
+
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-[#080d18]/95">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-5">
+            <a href="index.html" class="text-3xl font-bold">K<span class="text-cyan-400">.</span></a>
+            <button id="menuToggle" class="text-2xl md:hidden">☰</button>
+            <div id="navLinks"
+                class="absolute left-0 top-20 hidden w-full flex-col gap-5 bg-[#101a2b] p-6 md:static md:flex md:w-auto md:flex-row md:bg-transparent md:p-0">
+                <a href="index.html" class="hover:text-cyan-400">Home</a>
+                <a href="about.html" class="hover:text-cyan-400">About</a>
+                <a href="skills.html" class="text-cyan-400">Skills</a>
+                <a href="projects.html" class="hover:text-cyan-400">Projects</a>
+                <a href="contact.html" class="hover:text-cyan-400">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-6 py-24">
+
+        <p class="tracking-[4px] text-cyan-400">WHAT I WORK WITH</p>
+
+        <h1 class="mt-4 text-5xl font-bold">
+            My <span class="text-cyan-400">Skills</span>
+        </h1>
+
+        <p class="mt-5 max-w-2xl leading-8 text-slate-400">
+            Technologies and tools I use to build modern and responsive web applications.
+        </p>
+
+        <div class="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+
+            <div
+                class="rounded-2xl border border-white/10 bg-[#101a2b] p-8 transition hover:-translate-y-2 hover:border-cyan-400">
+                <div class="text-4xl">🎨</div>
+                <h2 class="mt-5 text-2xl font-bold">Frontend</h2>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">HTML5</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">CSS3</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">JavaScript</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">TypeScript</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">React</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Next.js</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Tailwind CSS</span>
+                </div>
+            </div>
+
+            <div
+                class="rounded-2xl border border-white/10 bg-[#101a2b] p-8 transition hover:-translate-y-2 hover:border-cyan-400">
+                <div class="text-4xl">⚙️</div>
+                <h2 class="mt-5 text-2xl font-bold">Backend</h2>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Node.js</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Express.js</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">MongoDB</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">REST API</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">JWT</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Better Auth</span>
+                </div>
+            </div>
+
+            <div
+                class="rounded-2xl border border-white/10 bg-[#101a2b] p-8 transition hover:-translate-y-2 hover:border-cyan-400">
+                <div class="text-4xl">🛠️</div>
+                <h2 class="mt-5 text-2xl font-bold">Tools</h2>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Git</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">GitHub</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">VS Code</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Postman</span>
+                    <span class="rounded-lg bg-white/5 px-3 py-2 text-sm">Vercel</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-14 rounded-2xl border border-cyan-400/20 bg-cyan-400/5 p-8">
+            <p class="text-sm tracking-widest text-cyan-400">CURRENT FOCUS</p>
+            <h2 class="mt-4 text-3xl font-bold">MERN Stack Development</h2>
+            <p class="mt-4 leading-8 text-slate-400">
+                Improving my JavaScript, React, Next.js, Node.js and database skills
+                through practical projects.
+            </p>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-white/10 p-6 text-center text-sm text-slate-500">
+        © <span id="year"></span> Kopil Uddin. All Rights Reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
